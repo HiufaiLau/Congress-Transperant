@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="UTF-8">
+	<title>Senate Party Loyalty</title>
+</head>
+
+<body>
+	<nav>
+		<div>
+			<div>
+				<a href="#">TGIF</a>
+			</div>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li>
+					<a href="#">Congress 113</a>
+					<ul>
+						<li><a href="#">Senate</a></li>
+						<li><a href="#">House</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Attendance</a></li>
+				<ul>
+					<li><a href="#">Senate</a></li>
+					<li><a href="#">House</a></li>
+				</ul>
+
+				<li>
+					<a href="#">Party Loyalty</a>
+					<ul>
+						<li><a href="#">Senate</a></li>
+						<li><a href="#">House</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<header>
+		<div>
+		</div>
+	</header>
+	<!--Table container-->
+	<div>
+		<h2>Party Loyalty</h2>
+		<p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+	</div>
+
+	<h2>House at a glance</h2>
+	<table id="" class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Party</th>
+				<th scope="col">Number of Reps</th>
+				<th scope="col">% Vote With Party </th>
+			</tr>
+
+		</thead>
+		<tbody id="partyTable">
+
+		</tbody>
+	</table>
+	
+	<h2>Least Loyal (Bottom 10 % of party) </h2>
+	<table id="" class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">No. Party Votes</th>
+				<th scope="col">% Party Votes</th>
+
+		</thead>
+		<tbody id="lessLoyalTable">
+
+		</tbody>
+	</table>
+
+
+	<h2>Most Loyal (Top 10 % of party)</h2>
+	<table id="otherTable" class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">No. Party Votes</th>
+				<th scope="col">% Party Votes</th>
+			</tr>
+
+		</thead>
+		<tbody id="mostLoyalTable">
+
+		</tbody>
+	</table>
+
+	
+	<script src="js_json/pro-congress-113-house.js"></script>
+	<script src="js_json/house_data.js"></script>
+	<script src="js_json/house_loyalty.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</body>
+</html>
