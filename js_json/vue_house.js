@@ -1,7 +1,7 @@
 function myVue(data) {
 
 	var senateData = new Vue({
-		el: '#filterTable',
+		el: '#filterTheTable',
 
 		data: {
 			members: data,
@@ -31,38 +31,36 @@ function myVue(data) {
 			"less_10_pct_party_votes": {},
 		},
 
-	
-
 		computed: {
 			filterMembers: function () {
 
-				//filter functions for the checkboxes and the options
 				var filtredArray = []
 				this.members.forEach(oneMember => { //only select options
 					if (this.checkedNames.length == 0 && this.states == "all") { //nothing is chosen
 						filtredArray = this.members;
-					} else if (this.checkedNames.length > 0 && this.states == "all"){
+					} else if (this.checkedNames.length > 0 && this.states == "all") {
 						if (this.checkedNames.includes(oneMember.party)) {
 							filtredArray.push(oneMember)
 						}
-					} else if (this.checkedNames.length == 0 && this.states != "all"){
-						if(this.states==oneMember.state){
+					} else if (this.checkedNames.length == 0 && this.states != "all") {
+						if (this.states == oneMember.state) {
 							filtredArray.push(oneMember)
 						}
-					} else if (this.checkedNames.length >0 && this.states !="all"){
- 							if(this.checkedNames.includes(oneMember.party)&&this.states==oneMember.state){
-								filtredArray.push(oneMember)
-							}
+					} else if (this.checkedNames.length > 0 && this.states != "all") {
+						if (this.checkedNames.includes(oneMember.party) && this.states == oneMember.state) {
+							filtredArray.push(oneMember)
+						}
 					}
 				})
 				return filtredArray;
 			},
-			getState() {  //to list state in  and sort the states 
+			getState() { //to list state in  and sort the states 
 				let optionStates = [];
 				this.members.forEach(mem => (!optionStates.includes(mem.state)) ? optionStates.push(mem.state) : null);
 				return optionStates.sort();
-			},
-			created() {
+			}
+		},
+		created() {
 			this.num();
 			this.attendance();
 		},
@@ -127,12 +125,8 @@ function myVue(data) {
 	})
 }
 
-		}
-	})
-}
 
-
-fetch("https://api.propublica.org/congress/v1/113/house/members.json", {
+fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
 		method: 'GET',
 		headers: {
 			"X-API-Key": "mezilZ1NXSlZroQvIjL1Zr9ukE9YVIabN2llfr5d"
