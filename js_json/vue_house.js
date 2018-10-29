@@ -81,6 +81,7 @@ function myVue(data) {
 				var independentArray = this.members.filter(function (oneMember) {
 					return oneMember.party === "I";
 				});
+				
 				this.independent.number_of_Reps =
 					independentArray.length;
 
@@ -102,11 +103,15 @@ function myVue(data) {
 				this.democrat.votes_with_party_pct = democratAvg
 
 				var independentPct = []
-				democratArray.forEach(mem => independentPct.push(mem.votes_with_party_pct));
+				if (independentArray.length==0 ){
+					independentAvg=0;
+				}else{independentArray.forEach(mem => independentPct.push(mem.votes_with_party_pct)) ;
 				var independentSum = independentPct.reduce((sum, rep) => sum + rep);
-				var independentAvg = Math.round(independentSum / independentPct.length * 100) / 100;
+				var independentAvg = Math.round(independentSum / independentPct.length * 100) / 100 ;
+					 }
+	
 				this.independent.votes_with_party_pct = independentAvg
-
+					
 
 				//average percentage of total
 				this.total.votes_with_party_pct =
@@ -126,7 +131,7 @@ function myVue(data) {
 }
 
 
-fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
+fetch("https://api.propublica.org/congress/v1/113/house/members.json", {
 		method: 'GET',
 		headers: {
 			"X-API-Key": "mezilZ1NXSlZroQvIjL1Zr9ukE9YVIabN2llfr5d"
